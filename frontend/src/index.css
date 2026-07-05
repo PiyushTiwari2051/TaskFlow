@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    @apply h-full overflow-hidden;
+  }
+
+  body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@layer utilities {
+  /* Premium custom scrollbar styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-navy-200 dark:bg-navy-700 rounded-full transition-colors hover:bg-navy-300 dark:hover:bg-navy-600;
+  }
+
+  /* Glassmorphism containers */
+  .glass-card {
+    @apply bg-white/70 dark:bg-navy-900/70 backdrop-blur-md border border-white/20 dark:border-navy-800/50 shadow-premium;
+  }
+
+  /* Smooth press scaling for premium feel */
+  .btn-press {
+    @apply active:scale-95 transition-transform duration-100;
+  }
+
+  /* Custom board background color options */
+  .board-bg-teal { background-color: #0F6E5C; }
+  .board-bg-amber { background-color: #E8973B; }
+  .board-bg-navy { background-color: #0B0F19; }
+  .board-bg-coral { background-color: #E05D5D; }
+  .board-bg-purple { background-color: #583F8C; }
+  .board-bg-green { background-color: #2D6A4F; }
+  .board-bg-slate { background-color: #4E5D6C; }
+}
+
+/* Custom dnd-kit drag-overlay tilt styling */
+.drag-tilt {
+  transform: rotate(2deg) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(11, 15, 25, 0.15), 0 10px 10px -5px rgba(11, 15, 25, 0.04);
+}
