@@ -8,6 +8,12 @@ A real-time collaborative Kanban board engineered with fractional-index position
 
 ---
 
+**Production Deployments (Standard Monorepo Configuration):**
+*   **Frontend client (Vercel):** `https://<your-project>.vercel.app` (Point Vercel to `frontend/` subdirectory)
+*   **Backend server (Render):** `https://<your-project>.onrender.com` (Point Render to monorepo root or `backend/` subdirectory)
+
+---
+
 ```mermaid
 sequenceDiagram
     autonumber
