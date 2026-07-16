@@ -45,13 +45,13 @@ sequenceDiagram
     end
 ```
 
-## The 10-Second Pitch
+# The 10-Second Pitch
 
 Your teammate drags a task card to "In Progress". At the exact same microsecond, you drag the card below it. Instead of the UI glitching, double-updating, or throwing duplicate-key exceptions, TaskFlow processes the updates atomically, resolves coordinate spacing, and flashes the movement on your screen in real time. No spinners, no broken states.
 
 ---
 
-## Table of Contents
+# Table of Contents
 1. [Why This Exists](#why-this-exists)
 2. [What Makes It Different](#what-makes-it-different)
 3. [Tech Stack](#tech-stack)
@@ -67,7 +67,7 @@ Your teammate drags a task card to "In Progress". At the exact same microsecond,
 
 ---
 
-## Why This Exists
+# Why This Exists
 
 Most tutorial-level Kanban apps use simple array indexes for task ordering (e.g. array splicing on drag). When two users drag items in the same column concurrently, their state updates collide, causing cards to jump, disappear, or overwrite database records. TaskFlow was built to solve concurrent state reconciliation on high-activity boards.
 
@@ -82,7 +82,7 @@ Most tutorial-level Kanban apps use simple array indexes for task ordering (e.g.
 
 ---
 
-## Tech Stack
+# Tech Stack
 
 | Layer | Technology | Rationale |
 | :--- | :--- | :--- |
@@ -98,7 +98,7 @@ Most tutorial-level Kanban apps use simple array indexes for task ordering (e.g.
 
 ---
 
-## How It Actually Works
+# How It Actually Works
 
 The frontend maintains a single source of truth in a Zustand store. WebSocket events trigger local reducers that patch this store directly:
 
@@ -115,13 +115,13 @@ handleSocketTaskMoved: (taskData) => set((state) => {
 
 ---
 
-## Getting Started
+# Getting Started
 
-### Prerequisites
+## Prerequisites
 *   Node.js (v18 or higher)
 *   MongoDB Instance (Local Community Server or Atlas Cluster)
 
-### Installation
+## Installation
 1.  Clone the repository and install dependencies at the monorepo root:
     ```bash
     git clone https://github.com/your-username/taskflow.git
@@ -143,7 +143,7 @@ handleSocketTaskMoved: (taskData) => set((state) => {
 
 ---
 
-## Environment Variables
+# Environment Variables
 
 Configure these variables inside `backend/.env`:
 
@@ -160,7 +160,7 @@ Configure these variables inside `backend/.env`:
 
 ---
 
-## Project Structure
+# Project Structure
 
 ```text
 taskflow/
@@ -189,7 +189,7 @@ taskflow/
 
 ---
 
-## Verification & Testing
+# Verification & Testing
 
 TaskFlow runs Jest integration tests to verify database constraints, authentication sessions, and transaction rollbacks.
 
@@ -198,14 +198,14 @@ Run the test suite:
 npm run test:backend
 ```
 
-### Test Scope:
+## Test Scope:
 *   `tests/auth.test.js`: Verifies registration domain blocks, OTP verifications, unverified account log blockers, and session terminations.
 *   `tests/board.test.js`: Asserts default provision columns (auto-creating *To Do*, *In Progress*, *Done* columns) and authorization matrices.
 *   `tests/concurrency.test.js`: Simulates concurrent moves to the same position to verify that duplicate index coordinate collisions are resolved.
 
 ---
 
-## Honest Limitations
+# Honest Limitations
 
 1.  **MongoDB Standalone Limitations**: Transactions are enabled on Mongoose writes. However, if MongoDB is running as a local standalone server (not a replica set), transactions fallback to non-transactional single-write updates, which may risk minor inconsistencies during crashes.
 2.  **Local Disk File Storage**: Uploaded attachments are saved to the server's local filesystem (`backend/uploads`) rather than S3 or Cloudinary.
@@ -213,7 +213,7 @@ npm run test:backend
 
 ---
 
-## Roadmap
+# Roadmap
 
 - [x] 6-Digit Email OTP registration and verification flows.
 - [x] Disposable email blocker to filter fake/spam domains.
@@ -225,7 +225,7 @@ npm run test:backend
 
 ---
 
-## Contributing
+# Contributing
 
 1.  Fork the project.
 2.  Create your Feature Branch (`git checkout -b feature/amazing-feature`).
@@ -235,7 +235,7 @@ npm run test:backend
 
 ---
 
-## License
+# License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
